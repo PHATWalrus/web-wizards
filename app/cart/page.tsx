@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import { AnimatedToolbar } from "@/components/animated-toolbar"
 import { Footer } from "@/components/footer"
@@ -10,14 +12,14 @@ import { Trash2, Plus, Minus, CreditCard, ShoppingBag } from "lucide-react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
-// Mock cart data
+// Update the initialCartItems array to use Picsum Photos with consistent IDs
 const initialCartItems = [
   {
     id: "1",
     name: "Specialty House Blend",
     price: 180,
     quantity: 2,
-    image: "https://source.unsplash.com/random/100x100/?coffee",
+    image: "https://picsum.photos/id/766/100/100",
     businessName: "Sunrise Cafe",
   },
   {
@@ -25,7 +27,7 @@ const initialCartItems = [
     name: "Classic Novel Collection",
     price: 1200,
     quantity: 1,
-    image: "https://source.unsplash.com/random/100x100/?books",
+    image: "https://picsum.photos/id/24/100/100",
     businessName: "Page Turner Books",
   },
   {
@@ -33,7 +35,7 @@ const initialCartItems = [
     name: "Sourdough Bread",
     price: 150,
     quantity: 3,
-    image: "https://source.unsplash.com/random/100x100/?bread",
+    image: "https://picsum.photos/id/225/100/100",
     businessName: "Artisan Bakery",
   },
 ]
@@ -42,6 +44,11 @@ export default function CartPage() {
   const [cartItems, setCartItems] = useState(initialCartItems)
   const [promoCode, setPromoCode] = useState("")
   const [isPromoApplied, setIsPromoApplied] = useState(false)
+
+  // Add a function to handle image errors at the top of the component, after the useState declarations
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = "/placeholder.svg?height=100&width=100"
+  }
 
   const updateQuantity = (id: string, newQuantity: number) => {
     if (newQuantity < 1) return
@@ -97,9 +104,10 @@ export default function CartPage() {
                         >
                           <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
                             <img
-                              src={item.image || "/placeholder.svg"}
+                              src={item.image || "/placeholder.svg?height=100&width=100"}
                               alt={item.name}
                               className="w-full h-full object-cover"
+                              onError={handleImageError}
                             />
                           </div>
                           <div className="flex-1">

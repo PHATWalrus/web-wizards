@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { StarIcon } from "lucide-react"
+import { StarIcon, Eye } from "lucide-react"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
@@ -16,6 +16,7 @@ const featuredProducts = [
     category: "Creative Writing",
     rating: 4.8,
     image: "https://picsum.photos/id/24/600/400",
+    viewCount: 128,
   },
   {
     id: 2,
@@ -25,6 +26,7 @@ const featuredProducts = [
     category: "Marketing",
     rating: 4.9,
     image: "https://picsum.photos/id/48/600/400",
+    viewCount: 256,
   },
   {
     id: 3,
@@ -34,6 +36,7 @@ const featuredProducts = [
     category: "Programming",
     rating: 4.7,
     image: "https://picsum.photos/id/0/600/400",
+    viewCount: 192,
   },
 ]
 
@@ -52,12 +55,16 @@ export function FeaturedProducts() {
               viewport={{ once: true }}
             >
               <Card className="group relative overflow-hidden transition-all hover:shadow-lg rounded-xl border border-gray-200 dark:border-gray-800">
-                <div className="aspect-video w-full overflow-hidden">
+                <div className="aspect-video w-full overflow-hidden relative">
                   <img
                     src={product.image || "/placeholder.svg"}
                     alt={product.title}
                     className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
+                  <div className="absolute bottom-2 left-2 flex items-center gap-1 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
+                    <Eye className="h-3 w-3" />
+                    <span>{product.viewCount} views</span>
+                  </div>
                 </div>
                 <CardHeader>
                   <div className="flex justify-between items-start">

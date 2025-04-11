@@ -1,7 +1,5 @@
 "use client"
 
-import type React from "react"
-
 import { useState, useEffect } from "react"
 import { useParams } from "next/navigation"
 import { Footer } from "@/components/footer"
@@ -185,7 +183,7 @@ export default function BusinessPage() {
   const [isFavorite, setIsFavorite] = useState(false)
   const [businessData, setBusinessData] = useState<any>(null)
   const [mapError, setMapError] = useState<string | null>(null)
-  const [googleMapsApiKey, setGoogleMapsApiKey] = useState<string>("")
+  const [googleMapsApiKey, setGoogleMapsApiKey] = useState<string>("AIzaSyDPHxEqtnfuuQmyEFVWcxb7KWyOhRXrNN8")
 
   useEffect(() => {
     // Find the business data based on the ID from the URL
@@ -201,13 +199,12 @@ export default function BusinessPage() {
   }, [params])
 
   useEffect(() => {
-    // Check if Google Maps API key is set in localStorage
-    const savedApiKey = localStorage.getItem("googleMapsApiKey")
-    if (savedApiKey) {
-      setGoogleMapsApiKey(savedApiKey)
-      loadGoogleMapsScript(savedApiKey)
-    }
-  }, [])
+    // Use the pre-defined API key directly instead of checking localStorage
+    loadGoogleMapsScript(googleMapsApiKey)
+
+    // Store it in localStorage for future use
+    localStorage.setItem("googleMapsApiKey", googleMapsApiKey)
+  }, [googleMapsApiKey])
 
   const loadGoogleMapsScript = (apiKey: string) => {
     // Remove any existing Google Maps scripts
@@ -252,14 +249,6 @@ export default function BusinessPage() {
           setMapError("Error initializing Google Maps. Please check your API key.")
         }
       }
-    }
-  }
-
-  const handleApiKeySubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (googleMapsApiKey) {
-      localStorage.setItem("googleMapsApiKey", googleMapsApiKey)
-      loadGoogleMapsScript(googleMapsApiKey)
     }
   }
 
@@ -427,24 +416,8 @@ export default function BusinessPage() {
                                 style={{ background: "#f0f0f0" }}
                               >
                                 <div className="h-full flex items-center justify-center">
-                                  <form onSubmit={handleApiKeySubmit} className="p-4 text-center">
-                                    <p className="mb-2 text-sm">Please enter your Google Maps API key:</p>
-                                    <div className="flex gap-2">
-                                      <input
-                                        type="text"
-                                        value={googleMapsApiKey}
-                                        onChange={(e) => setGoogleMapsApiKey(e.target.value)}
-                                        placeholder="Your Google Maps API Key"
-                                        className="px-3 py-1 border rounded text-sm flex-1"
-                                      />
-                                      <Button type="submit" size="sm">
-                                        Apply
-                                      </Button>
-                                    </div>
-                                    <p className="mt-2 text-xs text-muted-foreground">
-                                      The key will be saved in your browser for future use.
-                                    </p>
-                                  </form>
+                                  <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full"></div>
+                                  <p className="ml-2 text-sm text-muted-foreground">Loading map...</p>
                                 </div>
                               </div>
                             </div>
@@ -454,18 +427,9 @@ export default function BusinessPage() {
                               <div className="text-center">
                                 <AlertCircle className="h-8 w-8 text-red-500 mx-auto mb-2" />
                                 <p className="text-red-600 mb-2">{mapError}</p>
-                                <form onSubmit={handleApiKeySubmit} className="flex gap-2">
-                                  <input
-                                    type="text"
-                                    value={googleMapsApiKey}
-                                    onChange={(e) => setGoogleMapsApiKey(e.target.value)}
-                                    placeholder="Your Google Maps API Key"
-                                    className="px-3 py-1 border rounded text-sm flex-1"
-                                  />
-                                  <Button type="submit" size="sm">
-                                    Try Again
-                                  </Button>
-                                </form>
+                                <Button onClick={() => loadGoogleMapsScript(googleMapsApiKey)} size="sm">
+                                  Retry Loading Map
+                                </Button>
                               </div>
                             </div>
                           )}

@@ -1,11 +1,12 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ShoppingBag, Heart } from "lucide-react"
+import { ShoppingBag, Heart, Eye } from "lucide-react"
+import Link from "next/link"
 
 interface ProductProps {
   product: {
@@ -15,6 +16,7 @@ interface ProductProps {
     price: string
     image: string
     category: string
+    viewCount?: number
   }
   businessName: string
 }
@@ -22,6 +24,18 @@ interface ProductProps {
 export function ProductCard({ product, businessName }: ProductProps) {
   const [isFavorite, setIsFavorite] = useState(false)
   const [isAddingToCart, setIsAddingToCart] = useState(false)
+  const [viewCount, setViewCount] = useState(product.viewCount || Math.floor(Math.random() * 100) + 10)
+
+  useEffect(() => {
+    // Simulate view count update
+    const interval = setInterval(() => {
+      if (Math.random() > 0.7) {
+        setViewCount((prev) => prev + 1)
+      }
+    }, 30000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   const handleAddToCart = () => {
     setIsAddingToCart(true)
@@ -56,6 +70,10 @@ export function ProductCard({ product, businessName }: ProductProps) {
             <Heart className={`h-5 w-5 ${isFavorite ? "fill-red-500 text-red-500" : "text-white"}`} />
           </Button>
           <Badge className="absolute top-2 left-2 rounded-full">{product.category}</Badge>
+          <div className="absolute bottom-2 left-2 flex items-center gap-1 bg-black/50 text-white text-xs px-2 py-1 rounded-full">
+            <Eye className="h-3 w-3" />
+            <span>{viewCount} views</span>
+          </div>
         </div>
         <CardContent className="p-4 flex-grow">
           <div className="mb-2">
@@ -66,6 +84,11 @@ export function ProductCard({ product, businessName }: ProductProps) {
         </CardContent>
         <CardFooter className="flex justify-between items-center p-4 pt-0">
           <span className="font-bold">{product.price}</span>
+          <Link href={`/products/${product.id}`}>
+            <Button size="sm" variant="outline" className="rounded-full mr-2">
+              View
+            </Button>
+          </Link>
           <Button size="sm" className="rounded-full" onClick={handleAddToCart} disabled={isAddingToCart}>
             {isAddingToCart ? (
               <div className="flex items-center">
@@ -87,7 +110,7 @@ export function ProductCard({ product, businessName }: ProductProps) {
             ) : (
               <>
                 <ShoppingBag className="mr-2 h-4 w-4" />
-                Add to Cart
+                Add
               </>
             )}
           </Button>

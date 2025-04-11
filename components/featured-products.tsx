@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Badge } from "@/components/ui/badge"
 import { StarIcon } from "lucide-react"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 const featuredProducts = [
   {
@@ -14,7 +15,7 @@ const featuredProducts = [
     price: "₹499",
     category: "Creative Writing",
     rating: 4.8,
-    image: "https://source.unsplash.com/random/300x200/?writing",
+    image: "https://picsum.photos/id/24/600/400",
   },
   {
     id: 2,
@@ -23,7 +24,7 @@ const featuredProducts = [
     price: "₹799",
     category: "Marketing",
     rating: 4.9,
-    image: "https://source.unsplash.com/random/300x200/?marketing",
+    image: "https://picsum.photos/id/48/600/400",
   },
   {
     id: 3,
@@ -32,7 +33,7 @@ const featuredProducts = [
     price: "₹1,299",
     category: "Programming",
     rating: 4.7,
-    image: "https://source.unsplash.com/random/300x200/?coding",
+    image: "https://picsum.photos/id/0/600/400",
   },
 ]
 
@@ -75,7 +76,9 @@ export function FeaturedProducts() {
                 </CardContent>
                 <CardFooter className="flex justify-between items-center">
                   <span className="text-lg font-bold">{product.price}</span>
-                  <Button className="rounded-full">Buy Now</Button>
+                  <Link href={`/products/${product.id}`}>
+                    <Button className="rounded-full">Buy Now</Button>
+                  </Link>
                 </CardFooter>
               </Card>
             </motion.div>

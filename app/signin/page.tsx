@@ -48,8 +48,7 @@ export default function SignInPage() {
           <div
             className="absolute inset-0 bg-center bg-cover bg-no-repeat opacity-20"
             style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?q=80&w=2070&auto=format&fit=crop')",
+              backgroundImage: "url('https://picsum.photos/id/326/2000/1200')",
             }}
           ></div>
           <div className="relative flex h-full flex-col items-center justify-center px-8 text-center text-white">

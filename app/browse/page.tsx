@@ -27,7 +27,7 @@ const businesses = [
     rating: 4.8,
     owner: "Priya Sharma",
     location: "Indiranagar",
-    image: "https://source.unsplash.com/random/300x200/?cafe",
+    image: "https://picsum.photos/id/225/600/400",
     openHours: "8 AM - 10 PM",
   },
   {
@@ -39,7 +39,7 @@ const businesses = [
     rating: 4.9,
     owner: "Rahul Mehta",
     location: "Koramangala",
-    image: "https://source.unsplash.com/random/300x200/?bookstore",
+    image: "https://picsum.photos/id/169/600/400",
     openHours: "10 AM - 8 PM",
   },
   {
@@ -51,7 +51,7 @@ const businesses = [
     rating: 4.7,
     owner: "Anita Desai",
     location: "Jayanagar",
-    image: "https://source.unsplash.com/random/300x200/?bakery",
+    image: "https://picsum.photos/id/292/600/400",
     openHours: "7 AM - 9 PM",
   },
   {
@@ -63,7 +63,7 @@ const businesses = [
     rating: 4.6,
     owner: "Vikram Singh",
     location: "HSR Layout",
-    image: "https://source.unsplash.com/random/300x200/?grocery",
+    image: "https://picsum.photos/id/42/600/400",
     openHours: "9 AM - 9 PM",
   },
   {
@@ -75,7 +75,7 @@ const businesses = [
     rating: 4.5,
     owner: "Meera Patel",
     location: "Whitefield",
-    image: "https://source.unsplash.com/random/300x200/?crafts",
+    image: "https://picsum.photos/id/76/600/400",
     openHours: "11 AM - 7 PM",
   },
   {
@@ -87,7 +87,7 @@ const businesses = [
     rating: 4.7,
     owner: "Arjun Kumar",
     location: "Electronic City",
-    image: "https://source.unsplash.com/random/300x200/?technology",
+    image: "https://picsum.photos/id/0/600/400",
     openHours: "10 AM - 8 PM",
   },
 ]

@@ -5,6 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter }
 import { Badge } from "@/components/ui/badge"
 import { StarIcon } from "lucide-react"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
 const featuredBusinesses = [
   {
@@ -14,7 +15,7 @@ const featuredBusinesses = [
     price: "₹200 for two",
     category: "Cafe",
     rating: 4.8,
-    image: "https://source.unsplash.com/random/300x200/?cafe",
+    image: "https://picsum.photos/id/225/600/400",
   },
   {
     id: 2,
@@ -23,7 +24,7 @@ const featuredBusinesses = [
     price: "₹500 avg. purchase",
     category: "Bookstore",
     rating: 4.9,
-    image: "https://source.unsplash.com/random/300x200/?bookstore",
+    image: "https://picsum.photos/id/169/600/400",
   },
   {
     id: 3,
@@ -32,7 +33,7 @@ const featuredBusinesses = [
     price: "₹350 for two",
     category: "Bakery",
     rating: 4.7,
-    image: "https://source.unsplash.com/random/300x200/?bakery",
+    image: "https://picsum.photos/id/292/600/400",
   },
 ]
 
@@ -89,7 +90,9 @@ export function FeaturedBusinesses() {
                 </CardContent>
                 <CardFooter className="flex justify-between items-center">
                   <span className="text-lg font-bold">{business.price}</span>
-                  <Button className="rounded-full">Visit Now</Button>
+                  <Link href={`/business/${business.id}`}>
+                    <Button className="rounded-full">Visit Now</Button>
+                  </Link>
                 </CardFooter>
               </Card>
             </motion.div>
@@ -97,9 +100,11 @@ export function FeaturedBusinesses() {
         </div>
 
         <div className="mt-12 text-center">
-          <Button variant="outline" className="rounded-full px-8">
-            View All Businesses
-          </Button>
+          <Link href="/browse">
+            <Button variant="outline" className="rounded-full px-8">
+              View All Businesses
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

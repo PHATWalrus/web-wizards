@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation"
 
-export default function LoginPage() {
-  redirect("/signin")
+export default function IndexPage() {
+  redirect("/")
   return null
 }

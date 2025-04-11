@@ -43,7 +43,7 @@ export function ProductCard({ product, businessName }: ProductProps) {
       <Card className="overflow-hidden rounded-3xl border-0 shadow-md h-full flex flex-col">
         <div className="relative">
           <img
-            src={product.image || "https://source.unsplash.com/random/300x200/?product"}
+            src={product.image || `https://picsum.photos/id/${Math.floor(Math.random() * 100)}/300/200`}
             alt={product.name}
             className="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105"
           />

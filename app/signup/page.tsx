@@ -60,8 +60,7 @@ export default function SignUpPage() {
           <div
             className="absolute inset-0 bg-center bg-cover bg-no-repeat opacity-20"
             style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070&auto=format&fit=crop')",
+              backgroundImage: "url('https://picsum.photos/id/42/2000/1200')",
             }}
           ></div>
           <div className="relative flex h-full flex-col items-center justify-center px-8 text-center text-white">

@@ -31,9 +31,9 @@ const businessesData = [
     priceRange: "₹200 for two",
     location: { lat: 12.9716, lng: 77.5946 }, // Bangalore coordinates
     images: [
-      "https://source.unsplash.com/random/600x400/?cafe",
-      "https://source.unsplash.com/random/600x400/?coffee",
-      "https://source.unsplash.com/random/600x400/?bakery",
+      "https://picsum.photos/id/225/600/400",
+      "https://picsum.photos/id/431/600/400",
+      "https://picsum.photos/id/292/600/400",
     ],
     products: [
       {
@@ -41,7 +41,7 @@ const businessesData = [
         name: "Specialty House Blend",
         description: "Our signature coffee blend with notes of chocolate and caramel.",
         price: "₹180",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "https://picsum.photos/id/766/200/200",
         category: "Coffee",
       },
       {
@@ -49,7 +49,7 @@ const businessesData = [
         name: "Artisan Croissant",
         description: "Flaky, buttery croissant made fresh daily.",
         price: "₹120",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "https://picsum.photos/id/431/200/200",
         category: "Pastry",
       },
       {
@@ -57,7 +57,7 @@ const businessesData = [
         name: "Avocado Toast",
         description: "Sourdough toast topped with avocado, cherry tomatoes, and microgreens.",
         price: "₹250",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "https://picsum.photos/id/292/200/200",
         category: "Breakfast",
       },
       {
@@ -65,7 +65,7 @@ const businessesData = [
         name: "Sunrise Breakfast Box",
         description: "A complete breakfast with eggs, toast, fruits, and coffee.",
         price: "₹350",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "https://picsum.photos/id/1080/200/200",
         category: "Breakfast",
       },
     ],
@@ -76,7 +76,7 @@ const businessesData = [
         rating: 5,
         date: "2 weeks ago",
         comment: "Amazing coffee and atmosphere! The staff is very friendly and the pastries are delicious.",
-        avatar: "/placeholder.svg?height=40&width=40",
+        avatar: "https://picsum.photos/id/64/40/40",
       },
       {
         id: "2",
@@ -84,7 +84,7 @@ const businessesData = [
         rating: 4,
         date: "1 month ago",
         comment: "Great place to work remotely. Good wifi and plenty of power outlets.",
-        avatar: "/placeholder.svg?height=40&width=40",
+        avatar: "https://picsum.photos/id/65/40/40",
       },
       {
         id: "3",
@@ -92,7 +92,7 @@ const businessesData = [
         rating: 5,
         date: "2 months ago",
         comment: "The avocado toast is to die for! Definitely coming back for more.",
-        avatar: "/placeholder.svg?height=40&width=40",
+        avatar: "https://picsum.photos/id/66/40/40",
       },
     ],
   },
@@ -111,9 +111,9 @@ const businessesData = [
     priceRange: "₹500 avg. purchase",
     location: { lat: 12.9352, lng: 77.6245 }, // Koramangala coordinates
     images: [
-      "https://source.unsplash.com/random/600x400/?bookstore",
-      "https://source.unsplash.com/random/600x400/?books",
-      "https://source.unsplash.com/random/600x400/?library",
+      "https://picsum.photos/id/169/600/400",
+      "https://picsum.photos/id/24/600/400",
+      "https://picsum.photos/id/42/600/400",
     ],
     products: [
       {
@@ -121,7 +121,7 @@ const businessesData = [
         name: "Classic Novel Collection",
         description: "Set of 5 classic novels in hardcover edition.",
         price: "₹1,200",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "https://picsum.photos/id/24/200/200",
         category: "Books",
       },
       {
@@ -129,7 +129,7 @@ const businessesData = [
         name: "Contemporary Fiction",
         description: "Latest bestsellers and award-winning fiction.",
         price: "₹450",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "https://picsum.photos/id/169/200/200",
         category: "Books",
       },
       {
@@ -137,7 +137,7 @@ const businessesData = [
         name: "Children's Book Bundle",
         description: "Collection of illustrated children's books for ages 5-10.",
         price: "₹800",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "https://picsum.photos/id/20/200/200",
         category: "Books",
       },
       {
@@ -145,7 +145,7 @@ const businessesData = [
         name: "Bookworm Membership",
         description: "Annual membership with discounts and exclusive events.",
         price: "₹1,500",
-        image: "/placeholder.svg?height=200&width=200",
+        image: "https://picsum.photos/id/42/200/200",
         category: "Membership",
       },
     ],
@@ -156,7 +156,7 @@ const businessesData = [
         rating: 5,
         date: "1 week ago",
         comment: "Wonderful selection of books and very knowledgeable staff. My favorite bookstore in the city!",
-        avatar: "/placeholder.svg?height=40&width=40",
+        avatar: "https://picsum.photos/id/91/40/40",
       },
       {
         id: "2",
@@ -164,7 +164,7 @@ const businessesData = [
         rating: 5,
         date: "3 weeks ago",
         comment: "Attended a book reading event here and it was fantastic. Great community space.",
-        avatar: "/placeholder.svg?height=40&width=40",
+        avatar: "https://picsum.photos/id/92/40/40",
       },
       {
         id: "3",
@@ -172,7 +172,7 @@ const businessesData = [
         rating: 4,
         date: "2 months ago",
         comment: "Good collection but can be a bit pricey. The ambiance makes up for it though.",
-        avatar: "/placeholder.svg?height=40&width=40",
+        avatar: "https://picsum.photos/id/93/40/40",
       },
     ],
   },
@@ -550,7 +550,7 @@ export default function BusinessPage() {
                         className="aspect-square rounded-xl overflow-hidden"
                       >
                         <img
-                          src={`/placeholder.svg?height=300&width=300&text=Photo ${index + 1}`}
+                          src={`https://picsum.photos/id/${index + 10}/300/300`}
                           alt={`${businessData.name} photo ${index + 1}`}
                           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                         />
